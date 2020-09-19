@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link as GatsbyLink } from 'gatsby';
+import Img from 'gatsby-image';
 
 const useStyles = makeStyles({
   root: {
@@ -30,16 +31,11 @@ export default function OutlinedCard(props) {
 
   return (
     <Card className={classes.root} variant="outlined">
+      {props.image ? <Img fluid={props.image.childImageSharp.fluid} /> : null}
       <CardContent>
-        {/* <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography> */}
-        <Typography variant="h6">
+        <Typography variant='h5'>
           {props.title}
         </Typography>
-        {/* <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography> */}
         <Typography variant="body2" component="p">
           {props.body}
         </Typography>

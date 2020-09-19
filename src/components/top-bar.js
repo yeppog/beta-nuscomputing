@@ -6,7 +6,7 @@ import Link from '@material-ui/core/Link';
 import { Link as GatsbyLink } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import SmallLogo from '../components/smalllogo'
+import SmallLogo from './small-logo'
 import Hidden from '@material-ui/core/Hidden';
 import PropTypes from 'prop-types';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
@@ -22,13 +22,16 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   links: {
+      outline: 'none',
     '& > *': {
       marginRight: theme.spacing(4),
+    },
+    '& a': {
     }
   },
   computingClub: {
     marginLeft: '8px',
-    fontFamily: 'Memphis LT Std',
+    fontFamily: 'Memphis LT Std!important',
     color: '#27378f',
     lineHeight: 1,
     '& *': {
@@ -108,10 +111,10 @@ function TopBar({props}) {
               <Link href='#' onClick={preventDefault}>
                 Guides
               </Link>
-              <Link target='_blank' href='https://freshmen.nuscomputing.com/' onClick={preventDefault}>
+              <Link target='_blank' href='https://freshmen.nuscomputing.com/'>
                 FOP
               </Link>
-              <Link href='https://www.flickr.com/photos/137141057@N04/albums' onClick={preventDefault}>
+              <Link target='_blank' href='https://www.flickr.com/photos/137141057@N04/albums'>
                 Photos/Media
               </Link>
             </Typography>

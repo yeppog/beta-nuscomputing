@@ -1,14 +1,18 @@
 import React from 'react'
-import { Avatar, Box, Button,Grid, Typography } from '@material-ui/core'
+import { Avatar, Box, Button, Divider, Hidden, Typography } from '@material-ui/core'
+import ArrowBack from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
-import {Link as GatsbyLink} from 'gatsby';
-
+import SignUpButton from './sign-up-button'
 
 const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(16),
     height: theme.spacing(16),
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -30,16 +34,26 @@ function nextHeaderSize(headerSize) {
 }
 
 const Section = (section) => {
+  if (section.divider)
+    return <Box mt={4}>
+      <Divider></Divider>
+    </Box>
   return <div>
     <Box mt={4}>
       <Typography variant={section.headerSize}>{section.title}</Typography>
     </Box>
     <Typography variant='body1'>
       {section.content}
-      <ul>
-        {section.bullets ? section.bullets.map((bullet) => <li>{bullet}</li>) : null}
-
-      </ul>
+      {
+        section.bullets ?
+          <Box mt={2}>
+            <ul>
+              {section.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </Box>
+          : null
+      }
+      
     </Typography>
     
     {section.subsections ? section.subsections.map((subsection) => <Section {...subsection} headerSize={nextHeaderSize(section.headerSize)} ></Section>) : null}
@@ -48,33 +62,44 @@ const Section = (section) => {
 
 const RecruitmentDetails = (props) => {
   const classes = useStyles();
-
   return <div>
+    <Button
+        color="primary"
+        className={classes.button}
+        size="large"
+        startIcon={<ArrowBack />}
+        component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
     <Box display='flex' mt={4}>
-      <Typography variant='h4'>
+      <Typography variant='h3'>
         {props.name}
       </Typography>
-      <Spacer></Spacer>
-      <Button variant='contained' color='primary' component={GatsbyLink} to=''>Sign up now</Button>
+      <Spacer/>
+      <Hidden smDown>
+        <SignUpButton/>
+      </Hidden>
     </Box>
     <Box mt={4}>
-      <Typography variant='h5'>The Team</Typography>
+      <Typography variant='h4'>The Team</Typography>
     </Box>
     <Box display='flex' flexDirection="row" mt={4}>
       <Spacer/>
         {Object.entries(props.team.people).map(([index, person]) =>
-          <Box display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index === 0 ? 0 : 4}>
-            <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replace(' ', '')].childImageSharp.fluid}/>
-            <Typography variant='h6'>{person.name}</Typography>
-            <Typography variant='overline'>{person.position}</Typography>
+          <Box display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
+            <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replaceAll(' ', '')].childImageSharp.fluid}/>
+            <Box mt={1}>
+              <Typography variant='h6'>{person.name}</Typography>
+            </Box>
+            <Typography variant='overline' style={{lineHeight: '1'}}>{person.position}</Typography>
           </Box>
         )}
       <Spacer/>
     </Box>
     {props.sections.map(
-      (section) => <Section {...section} headerSize='h5'></Section>
+      (section) => <Section {...section} headerSize='h4'></Section>
     )}
-    <Button variant='contained' color='primary' component={GatsbyLink} to=''>Sign up now</Button>
+    <Box mt={4} mb={4}>
+      <SignUpButton/>
+    </Box>
   </div>
 }
 
