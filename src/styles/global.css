@@ -1,0 +1,7 @@
+@import url(//db.onlinewebfonts.com/c/78a8b11e022075329df030e35117c6ec?family=Memphis+LT+Std);
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+@import '../components/layout.css';
+body * {
+  
+  font-family: 'Josefin Sans', sans-serif;
+}
