@@ -1,20 +1,8 @@
 import React from 'react'
 import BaseContainer from '../../components/base-container'
-import { Avatar, Box, Grid, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles';
 import SEO from '../../components/seo'
 import { useStaticQuery, graphql } from 'gatsby';
 import RecruitmentDetails from '../../components/recruitment-details'
-import Img from 'gatsby-image';
-
-const useStyles = makeStyles((theme) => ({
-  large: {
-    width: theme.spacing(16),
-    height: theme.spacing(16),
-  },
-}));
-
-const Spacer = () => <div style={{flex: 1}}></div>;
 
 const CommunityService = () => {
   const props = {
