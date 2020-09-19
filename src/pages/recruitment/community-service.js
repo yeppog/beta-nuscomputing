@@ -35,7 +35,7 @@ const CommunityService = () => {
             }
           }
         }
-      `)
+      `),
     },
     sections: [
       {
@@ -56,7 +56,7 @@ const CommunityService = () => {
           'If you are someone with event-planning experiences,',
           'or someone with brilliant ideas to share and fun initiates that you want to implement for the rest of SOC students,',
           'or simply someone with passion to connect and to rejuvenate the community',
-        ]
+        ],
       },
       {
         title: 'Events',
@@ -100,7 +100,7 @@ const CommunityService = () => {
           },
         ],
       },
-    ]
+    ],
   }
 
   return <BaseContainer>
