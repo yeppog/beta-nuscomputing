@@ -5,15 +5,19 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Link from '@material-ui/core/Link';
 import { Link as GatsbyLink } from 'gatsby';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import SmallLogo from './small-logo'
-import Hidden from '@material-ui/core/Hidden';
 import PropTypes from 'prop-types';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import MenuIcon from '@material-ui/icons/Menu';
+import { useTheme } from '@material-ui/core/styles';
+
+import { Box, Drawer, List, IconButton, ListItem, Button, ListItemText, Hidden } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    // top: '0'
   },
   appBar: {
     background: 'white',
@@ -22,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   links: {
-    fontFamily: 'Josefin Sans, sans-serif',
+    fontFamily: 'Kumbh Sans, sans-serif',
     outline: 'none',
     '& > *': {
       marginRight: theme.spacing(4),
@@ -40,6 +44,9 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  drawer: {
+    minWidth: '256px',
+  }
 }));
 
 function ElevationScroll(props) {
@@ -62,68 +69,142 @@ ElevationScroll.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-function TopBar({props}) {
+const navigationLinks = [
+  {
+    title: 'About',
+    link: '/about',
+  },
+  {
+    title: 'People',
+    link: '',
+  },
+  {
+    title: 'Services',
+    link: '',
+  },
+  {
+    title: 'Sports',
+    link: '',
+  },
+  {
+    title: 'Student Guide',
+    link: '/guides',
+    newTab: 'true',
+  },
+  {
+    title: 'FOP',
+    link: 'https://freshmen.nuscomputing.com/',
+    newTab: 'true',
+  },
+  {
+    title: 'Photos/Media',
+    link: 'https://www.flickr.com/photos/137141057@N04/albums/',
+    newTab: 'true',
+  },
+]
+
+function TopBar(props) {
   const classes = useStyles();
-  const preventDefault = (event) => event.preventDefault();
+  const xxs = useMediaQuery('(max-width:400px)');
+  const [state, setState] = React.useState({
+    opened: false,
+  });
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+  const theme = useTheme();
+  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   return (
-    <ElevationScroll {...props}>
-      <AppBar position='sticky' className={classes.root}>
-        <Toolbar className={classes.appBar}>
-          <GatsbyLink to="/">
-            <SmallLogo></SmallLogo>
-          </GatsbyLink>
-          <div className={classes.spacer}>
+    <div>
+      <ElevationScroll {...props}>
+        <AppBar className={classes.root}>
+          <Toolbar className={classes.appBar}>
+            <GatsbyLink to="/">
+              <SmallLogo></SmallLogo>
+            </GatsbyLink>
+            <div className={classes.spacer}>
+              <Hidden mdDown>
+                <Typography variant='h6' className={classes.computingClub}>
+                  <GatsbyLink to='/'>NUS Students' Computing Club</GatsbyLink>
+                </Typography>
+              </Hidden>
+              <Hidden xsDown lgUp>
+                <Typography variant='h6' className={classes.computingClub}>
+                  <GatsbyLink to='/'>
+                    NUS Students'<br/>
+                    Computing Club
+                  </GatsbyLink>
+                </Typography>
+              </Hidden>
+              <Hidden smUp>
+                <Typography variant='subtitle1' className={classes.computingClub}>
+                  {!xxs ? <GatsbyLink to='/'>
+                    NUS Students'<br/>
+                    Computing Club
+                  </GatsbyLink> : null}
+                </Typography>
+              </Hidden>
+            </div>
             <Hidden mdDown>
-              <Typography variant='h6' className={classes.computingClub}>
-                <GatsbyLink to='/'>NUS Students' Computing Club</GatsbyLink>
+              <Typography style={{ color: 'white' }} className={classes.links}>
+                {navigationLinks.map(link => <Link href={link.link}>{link.title}</Link>)}
               </Typography>
             </Hidden>
-            <Hidden xsDown lgUp>
-              <Typography variant='h6' className={classes.computingClub}>
-                <GatsbyLink to='/'>
-                  NUS Students'<br/>
-                  Computing Club
-                </GatsbyLink>
-              </Typography>
+            <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
+  
+            <Hidden lgUp>
+              <Box ml={1}>
+                <IconButton edge="end" color="primary" aria-label="menu" onClick={toggleDrawer('opened', true)}>
+                  <MenuIcon />
+                </IconButton>
+              </Box>
             </Hidden>
-            <Hidden smUp>
-              <Typography variant='subtitle1' className={classes.computingClub}>
-                <GatsbyLink to='/'>
-                  NUS Students'<br/>
-                  Computing Club
-                </GatsbyLink>
-              </Typography>
-            </Hidden>
-          </div>
-          <Hidden mdDown>
-            <Typography style={{ color: 'white' }} className={classes.links}>
-              <Link href='/about'>
-                About
-              </Link>
-              <Link href='#' onClick={preventDefault}>
-                People
-              </Link>
-              <Link href='#' onClick={preventDefault}>
-                Services
-              </Link>
-              <Link href='#' onClick={preventDefault}>
-                Sports
-              </Link>
-              <Link component={GatsbyLink} to='/guides'>
-                Student Guide
-              </Link>
-              <Link target='_blank' href='https://freshmen.nuscomputing.com/'>
-                FOP
-              </Link>
-              <Link target='_blank' href='https://www.flickr.com/photos/137141057@N04/albums'>
-                Photos/Media
-              </Link>
-            </Typography>
-          </Hidden>
-          <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
-        </Toolbar>
-      </AppBar>
-    </ElevationScroll>);
+          </Toolbar>
+        </AppBar>
+  
+      </ElevationScroll>
+
+      {/* Drawer for mobile */}
+      <React.Fragment>
+        <Drawer anchor='right' open={state['opened'] && mdDown} onClose={toggleDrawer('opened', false)}>
+        <Box
+            pt={4}
+            className={classes.drawer}
+            role="presentation"
+            onClick={toggleDrawer('opened', false)}
+            onKeyDown={toggleDrawer('opened', false)}>
+            <List>
+              <Box mb={4} ml={4}>
+                <ListItem>
+                  <ListItemText disableTypography>
+                    <Typography variant='h5' className={classes.computingClub}>
+                      <GatsbyLink to='/'>NUS Students'<br/>Computing Club</GatsbyLink>
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+              </Box>
+              {navigationLinks.map(link => (
+                <ListItem key={link.title} button component='a' href={link.link}>
+                  <ListItemText disableTypography>
+                    <Box pl={0}>
+                      <Typography color='primary' variant='h6'>
+                        {link.title}
+                      </Typography>
+                    </Box>
+                  </ListItemText>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
+      </React.Fragment>
+    </div>
+  );
 }
     
 export default TopBar

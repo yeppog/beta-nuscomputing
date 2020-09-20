@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 import { Box, Container, Grid, Hidden, IconButton, Icon, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -17,7 +16,7 @@ const Copyright = () =>
   <Typography variant='caption'>
     <br/>
     Copyright © NUS Students' Computing Club<br/>
-    Page designed by <Link href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
+    Page designed by <Link target='_blank' href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
   </Typography>;
 
 const Footer = ({ siteTitle }) => {

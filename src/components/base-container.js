@@ -1,10 +1,11 @@
 import React from 'react'
-import { makeStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import SEO from './seo'
 import TopBar from './top-bar'
 import Footer from './footer'
 import Container from '@material-ui/core/Container'
+import { Toolbar } from '@material-ui/core'
 
 const theme = createMuiTheme({
   palette: {
@@ -19,7 +20,7 @@ const theme = createMuiTheme({
   },
   typography: { 
     fontFamily: [
-      'Josefin Sans',
+      'Kumbh Sans',
       'sans-serif',
     ].join(','),
     body1: {
@@ -34,14 +35,23 @@ const theme = createMuiTheme({
         'sans-serif',
       ].join(','),
     },
-  }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1350,
+      xl: 1920,
+    },
+  },
 });
 
 function BaseContainer(props) {
   return <MuiThemeProvider theme = { theme }>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' />
     <SEO title='Home' />
     <TopBar/>
+    <Toolbar/>
     <Container maxWidth='lg'>
       {props.children}
     </Container>

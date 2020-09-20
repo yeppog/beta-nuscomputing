@@ -71,7 +71,6 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
     >
       <script src="https://kit.fontawesome.com/1ed8bb2538.js" crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     </Helmet>
   )
 }

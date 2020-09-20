@@ -1,5 +1,4 @@
 import React from 'react'
-import OutlinedCard from '../components/outlined-card'
 import BaseContainer from '../components/base-container';
 import { Box, Typography } from '@material-ui/core';
 
@@ -42,7 +41,7 @@ function AboutPage() {
         <Typography variant='h4'>Constitution</Typography>
         <Typography variant='body1'>
           The constitution defines the framework that the NUS Students' Computing Club follows. Read
-          it <a href="https://nuscomputing.com/static/files/constitution.pdf" target="_blank">here</a>.
+          it <a href="https://nuscomputing.com/static/files/constitution.pdf" target="_blank" rel="noreferrer">here</a>.
         </Typography>
       </Box>
   </BaseContainer>;

@@ -83,7 +83,7 @@ const RecruitmentDetails = (props) => {
     </Box>
     <Box display='flex' flexDirection="row" mt={4}>
       <Spacer/>
-        {Object.entries(props.team.people).map(([index, person]) =>
+        {props.team.people.map((person, index) =>
           <Box display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
             <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replaceAll(' ', '')].childImageSharp.fluid}/>
             <Box mt={1}>

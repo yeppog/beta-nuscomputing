@@ -1,33 +1,7 @@
 import React from 'react'
-import { Box, Typography, Card, CardContent, CardMedia, Link, makeStyles, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Box, Typography, Link, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import BaseContainer from '../components/base-container'
-import { spacing } from '@material-ui/system';
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  content: {
-    flex: '1 0 auto',
-  },
-  cover: {
-    width: 151,
-  },
-  controls: {
-    display: 'flex',
-    alignItems: 'center',
-    paddingLeft: theme.spacing(1),
-    paddingBottom: theme.spacing(1),
-  },
-  playIcon: {
-    height: 38,
-    width: 38,
-  },
-}));
 
 const headerSizes = [
   'h1',
@@ -45,10 +19,10 @@ function nextHeaderSize(headerSize) {
 }
 
 function Guide(props) {
-  const classes = useStyles();
   return <div>
     <Box mt={4} ml={(props.padding) + 'px'}>
       <Typography variant={props.headerSize}>{props.title}</Typography>
+      {props.content ? <Typography variant='body1'>{props.content}</Typography> : null}
     </Box>
     {props.questions ? props.questions.map(question => 
       <Accordion>
@@ -227,57 +201,239 @@ function GuidesPage() {
         },
       ]
     },
+    {
+      title: 'Special Programmes',
+      questions: [
+        {
+          title: 'Special Programmes',
+          content: <div>
+            Visit <GuideLink href='http://www.comp.nus.edu.sg/programmes/sp/'>
+              here
+            </GuideLink> for more information about the selections of special programmes in SoC.
+          </div>,
+        },
+      ],
+      subsections: [
+        {
+          title: 'Double Degree Programme FAQs',
+          questions: [
+            {
+              title: 'How many modules must I take as a DDP student?',
+              content: 'This depends on what DDP you take. For example, a DDP in Computer Science and Accountancy will require approximately 230 to 240 MCs in total, while a DDP in Computer Science and Mathematics will require less as there are more modules that overlap. Look at both your degree requirements, eliminate the overlap, and count all the unique modules that are required — this will be the total modules you need to take.'
+            },
+            {
+              title: 'What is the workload like for a DDP student?',
+              content: 'This depends on the total number of modules you need to take, your capability, and your other commitments. It is flexible. The norm is for students to take 6 modules per semester and graduate in 5 years. However, you have the flexibility to take 7 or even 8 modules and graduate in 4 years or choose a slower pace and take a longer time to graduate.',
+            },
+            {
+              title: 'How long will it take to complete a DDP?',
+              content: 'The typical duration is 5 years. It could be less or more, depending how fast the individual clears his/her modules.',
+            },
+            {
+              title: 'Can I still do a DDP halfway during my studies?',
+              content: 'Yes, you may still apply a DDP after your first year of studies. Do strive for good grades in your first 2 semesters if you are aiming to do so.',
+            },
+            {
+              title: 'Is there any minimum requirement to continue my DDP?',
+              content: 'Yes, you will need to maintain a minimum CAP of 3.75 for your primary degree and a minimum CAP of 3.25 for your secondary degree to continue. Else, you will be asked to drop your secondary degree.',
+            },
+            {
+              title: 'What is the difference between a primary and secondary degree?',
+              content: 'Your primary degree is the degree from your home faculty. If you continue the DDP until graduation, there is absolutely no difference — you get a separate degree certificate for each degree. However, if you choose to drop one degree, you may only drop your secondary degree. You are encouraged to take more modules from your primary degree in the first year so that in the event you drop your secondary degree, you will not be lagging too far behind your peers in your primary degree.',
+            },
+            {
+              title: 'What is the difference between my home faculty and secondary faculty?',
+              content: `There is virtually no difference other than the fact that you pay the school fees of your home faculty, and that some faculties might not allow students who has another separate home faculty to apply for SEP through that faculty. Otherwise, you are still a student of both faculties. You are eligible for dean's list and awards from both faculties.`,
+            },
+            {
+              title: 'How is my CAP computed as a DDP student?',
+              content: 'Since you will be awarded 2 separate degrees upon graduation, you will have 2 separate CAPs computed.',
+            },
+            {
+              title: 'What happens if I drop my DDP?',
+              content: 'You may only drop your secondary degree. If you wish to drop your primary degree, you will first have to apply to change faculty (subject to approval) before dropping your secondary degree post faculty change. Your both CAPs will then be combined into 1.',
+            },
+            {
+              title: 'Can I still go for SEP as a DDP student?',
+              content: 'Yes, you may go for SEP through your home faculty. Going for SEP through your secondary faculty depends on whether your secondary faculty allows for that. Depending on the number of modules you manage to map in SEP, you might or might not need to extend your candidature. If you are planning to go for SEP, it might be good to plan which modules are easily mapped and refrain from taking them in NUS.',
+            },
+            {
+              title: 'Can I still go for NOC as a DDP student?',
+              content: 'Yes, you may go for either the 6-months or 1-year NOC. NOC is a programme where you work and study overseas. However, the modules you take during NOC are typically entrepreneurship modules and do not count towards either degree requirements. Hence, it is like you will have to extend your candidature or take even more modules in your other semesters should you decide to go for NOC.',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Overseas Opportunities',
+      questions: [
+        {
+          title: 'NUS Overseas Colleges (NOC)',
+          content: <div>
+            NUS Overseas College is a 6-month or 1-year programme where you intern at an overseas/local company and take entrepreneurship modules at the same time. The selection process consist of 3 rounds of interview, but you may proceed straight to the second round if you completed at least a Project Gemini for Orbital (Year 1 summer project, information will be make known to you in due time). While a good CAP will be beneficial, it does not play as heavy a weightage as your interview or portfolio.
+            <br/>
+            <br/>
+            Find out more about NUS Overseas Colleges <GuideLink href='https://enterprise.nus.edu.sg/educate/nus-overseas-colleges'>
+              here
+            </GuideLink>.
+          </div>,
+        },
+        {
+          title: 'Student Exchange Programmes (SEP)',
+          content: <div>
+            Student Exchange Programme is a programme where instead of studying in NUS, you study in another
+            overseas/local partner University for 1 Semester. If you are able to map the modules you took in
+            the partner University, it will be considered as you have fulfilled the module that you mapped onto.
+            If you are planning to go for SEP, it might be good to plan which modules are easily mapped and refrain
+            from taking them in NUS. Modules taken and mapped will only be graded on a pass-fail basis and will not
+            affect your CAP. You may find out all available pre-approved modules <GuideLink href='https://www.comp.nus.edu.sg/programmes/ug/beyond/sep/sepnoc-public'>
+              here
+            </GuideLink>.
+            <br/>
+            <br/>
+            In the SEP selection process, your CAP plays a vital role. So, if you’re aiming to go SEP through computing, it will be good to strive for a good CAP. That said, with the newly implemented SoC Student Award System (last tab of guides), participating in various other student life events also entitles you to different tiers of this award, which in turns boosts your SEP chances. You will be informed through email when calls for application for SEP starts.
+            <br/>
+            <br/>
+            Find out more about Student Exchange Programmes <GuideLink href='https://www.comp.nus.edu.sg/programmes/ug/beyond/sep'>
+              here
+            </GuideLink>.
+          </div>,
+        },
+        {
+          title: 'Summer and Winter Programmes',
+          content: <div>
+            Summer and Winter Programme consists of taking additional classes and modules during your summer or winter holidays. It is a good opportunity for clearing additional modules.
+
+            <br/>
+            <br/>
+            Find out more about Summer and Winter Programmes <GuideLink href='https://www.comp.nus.edu.sg/programmes/ug/beyond/summerwinter'>
+              here
+            </GuideLink>.
+          </div>,
+        },
+      ],
+    },
+    {
+      title: 'SoC Student Award',
+      questions: [
+        {
+          title: 'About the Award',
+          content: <div>
+            This is a new initiative to recognise non-academic achievements and contributions of our students. Drawing inspiration from the International Baccalaureate system of Creativity Activity Services, this system hopes to create a similar system to incentivise leadership while providing all-rounded enrichment beyond academics.
+            <br/>
+            <br/>
+            Submission of your achievements will also help the school to identify students whom they may nominate for other Awards such as the SCS IT Youth Leader Award, or NUS Student Achievement Awards.
+          </div>,
+        },
+        {
+          title: 'Application',
+          content: 
+            <div>
+              Submit your application <GuideLink href='https://mysurvey.nus.edu.sg/EFM/se/543BE5C26867C2A1'>
+                here
+              </GuideLink>.
+
+              <br/>
+              <br/>
+              The system is currently unable to accept document uploads, so please send your supporting documents
+              to the school via email to <GuideLink href='mailto:socfamily@comp.nus.edu.sg'>
+                socfamily@comp.nus.edu.sg
+              </GuideLink>.
+              Include your names in the file names and state "SoC Student Award" in the subject title.
+
+              <br/>
+              <br/>
+              The application period for each cycle is 1 August to 31 July in the following year.
+            </div>
+        }
+      ],
+      subsections: [
+        {
+          title: 'Pillars',
+          content: 'The student award system falls around 4 pillars.',
+          questions: [
+            {
+              title: 'Leadership (L)',
+              content: <div>
+                Roles or designation that involves leadership within Club or Interest Groups under NUS SoC.
+                <Box mt={2}>
+                  <ul>
+                    <li>
+                      Management Committee of NUS Students' Computing Club
+                    </li>
+                    <li>
+                      Core Team members of NUS Hackers
+                    </li>
+                    <li>
+                      Project Director of major events such as GameCraft
+                    </li>
+                  </ul>
+                </Box>
+                </div>
+            },
+            {
+              title: 'Accomplishment (A)',
+              content: <div>
+                Students who attain a certain level of achievement while representing NUS SoC, NUS, or Singapore in a competition.
+
+                <Box mt={2}>
+                  <ul>
+                    <li>
+                      Winning in Hackathon
+                    </li>
+                    <li>
+                      Getting medal in NUS Inter-Faculty Games
+                    </li>
+                  </ul>
+                </Box>
+              </div>
+            },
+            {
+              title: 'Service (S)',
+              content: <div>
+                Any experience that involves unpaid voluntary work under the name of NUS SoC that benefits the community in NUS or otherwise.
+
+                <Box mt={2}>
+                  <ul>
+                    <li>NUS Flag Day</li>
+                    <li>Beneficiary Engagement Day</li>
+                    <li>NUS SoC Code for Community</li>
+                    <li>Community Involvement Programme (CIP)</li>
+                    <li>Helpers for FOP, and other similar type events</li>
+                  </ul>
+                </Box>
+              </div>
+            },
+            {
+              title: 'Involvement (I)',
+              content: <div>
+                Any involvement in school based events or competitions that required active training or participation.
+
+                <Box py={2}>
+                  <ul>
+                    <li>Representing SoC in IFG</li>
+                    <li>Orientation Group Leaders for Freshmen Orientation Week</li>
+                    <li>House Head for Orientation Camps</li>
+                    <li>Committee for Freshmen Orientation Projects</li>
+                  </ul>
+                </Box>
+                In order to achieve the SoC Student Awards students have to achieve points in the various Pillars and attendance in Enrichment Programmes.
+              </div>
+            },
+          ],
+        },
+      ],
+    }
   ]
   return <BaseContainer>
-  <Typography variant='h3'>
-    Guides
-  </Typography>
-  <Typography variant='body1'>
-    Listed here are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
-  </Typography>
-  {guides.map(guide => <Guide {...guide} headerSize='h3' padding='0'></Guide>)}
-  
-  {/* <Guide {...prop}></Guide> */}
-    <div class="container-guides">
-      <div class="guide">
-        <div class="contents">
-        </div>
-      </div>
-      <div class="guide">
-        <img src="https://nuscomputing.com/static/images/guides/platforms.svg" alt="platforms"/>
-        <div class="contents">
-          <h1><a href="https://nuscomputing.com/guides/platforms.html">Platforms</a></h1><a href="https://nuscomputing.com/guides/platforms.html#nus-email">NUS Email</a><br/>
-          <a href="https://nuscomputing.com/guides/platforms.html#myedurec">myEduRec</a><br/>
-          <a href="https://nuscomputing.com/guides/platforms.html#luminus">LumiNUS</a><br/>
-          <a href="https://nuscomputing.com/guides/platforms.html#nusmods">NUSMods</a><br/>
-          <a href="https://nuscomputing.com/guides/platforms.html#nusync">NUSync</a><br/>
-          <a href="https://nuscomputing.com/guides/platforms.html#facilities-booking">Facilities Booking</a>
-        </div>
-      </div>
-      <div class="guide">
-        <img src="https://nuscomputing.com/static/images/guides/special_programmes.svg" alt="special_programmes"/>
-        <div class="contents">
-          <h1><a href="https://nuscomputing.com/guides/special_programmes.html">Special Programmes</a></h1><a href="https://nuscomputing.com/guides/special_programmes.html#special-programmes">Special Programmes</a><br/>
-          <a href="https://nuscomputing.com/guides/special_programmes.html#double-degree-programme-faqs">Double Degree Programme FAQ</a>
-        </div>
-      </div>
-      <div class="guide">
-        <img src="https://nuscomputing.com/static/images/guides/overseas_opportunities.svg" alt="overseas_opportunities"/>
-        <div class="contents">
-          <h1><a href="https://nuscomputing.com/guides/overseas_opportunities.html">Overseas Opportunities</a></h1><a href="https://nuscomputing.com/guides/overseas_opportunities.html#nus-overseas-colleges">NUS Overseas Colleges</a><br/>
-          <a href="https://nuscomputing.com/guides/overseas_opportunities.html#student-exchange-programmes">Student Exchange Programmes</a><br/>
-          <a href="https://nuscomputing.com/guides/overseas_opportunities.html#summer-and-winter-programmes">Summer and Winter Programmes</a>
-        </div>
-      </div>
-      <div class="guide">
-        <img src="https://nuscomputing.com/static/images/guides/soc_student_award.svg" alt="soc_student_award"/>
-        <div class="contents">
-          <h1><a href="https://nuscomputing.com/guides/soc_student_award.html">SoC Student Award</a></h1><a href="https://nuscomputing.com/guides/soc_student_award.html#introduction">Introduction</a><br/>
-          <a href="https://nuscomputing.com/guides/soc_student_award.html#pillars">Pillars</a><br/>
-          <a href="https://nuscomputing.com/guides/soc_student_award.html#application">Application</a>
-        </div>
-      </div>
-    </div>
+    <Typography variant='h3'>
+      Guides
+    </Typography>
+    <Typography variant='body1'>
+      Listed here are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
+    </Typography>
+    {guides.map(guide => <Guide {...guide} headerSize='h3' padding='0'></Guide>)}
   </BaseContainer>
 }
 
