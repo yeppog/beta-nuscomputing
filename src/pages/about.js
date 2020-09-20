@@ -37,7 +37,7 @@ function AboutPage() {
           for the needs and welfare of our fellow students.
         </Typography>
       </Box>
-      <Box mt={4} mb={16}>
+      <Box mt={4} mb={4}>
         <Typography variant='h4'>Constitution</Typography>
         <Typography variant='body1'>
           The constitution defines the framework that the NUS Students' Computing Club follows. Read

@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-import { Box, Container, Grid, Hidden, IconButton, Icon, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Hidden, IconButton, Icon, Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import WhiteLogo from './white-logo'
 
@@ -21,11 +21,13 @@ const Copyright = () =>
 
 const Footer = ({ siteTitle }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
   return <footer className={classes.footer}>
-    <Container>
-    <Box mt={4} p={4}></Box>
+    <Container fixed maxWidth={lgDown ? 'md' : 'lg'}>
+      <Box mt={4} p={4}></Box>
       <Grid container spacing={8}>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} lg={6} xl={4}>
           <WhiteLogo></WhiteLogo>
           <IconButton aria-label="facebook" target='_blank' href='https://www.facebook.com/nuscomputing'>
             <Icon class="fab fa-facebook"style={{ color: 'white' }} ></Icon>
@@ -49,7 +51,7 @@ const Footer = ({ siteTitle }) => {
             <Copyright></Copyright>
           </Hidden>
         </Grid>
-        <Grid item sm={6} md={6} lg={4}>
+        <Grid item sm={12} md={6} xl={4}>
           <Typography variant='h6'>
             Our History
           </Typography>
@@ -57,11 +59,11 @@ const Footer = ({ siteTitle }) => {
             Established when NUS School of Computing gained independence as a separate faculty in 1998, the NUS Students’ Computing Club is the official faculty club and sole union representative of all undergraduates in NUS School of Computing. The club has since been taking care of the student life in NUS School of Computing by organising various events and activities to promote campus vibrancy. We safeguard the interest of our undergraduates, ensure their voices are heard, provide welfare, and form the bridge between our students and the school.
           </Typography>
         </Grid>
-        <Hidden smDown lgUp>
+        <Hidden mdDown xlUp>
           <Grid item md={6}></Grid>
         </Hidden>
-        <Grid item sm={6} md={6} md={4}>
-          <Hidden only={['sm', 'lg', 'xl']}>
+        <Grid item sm={12} md={6} xl={4}>
+          <Hidden only={['md', 'xl']}>
             <Box mt={-4}>
               <Typography variant='h6'>
                 Vision
@@ -71,7 +73,7 @@ const Footer = ({ siteTitle }) => {
               </Typography>
             </Box>
           </Hidden>
-          <Hidden only={['xs', 'md']}>
+          <Hidden only={['sm', 'xs', 'lg']}>
             <Typography variant='h6'>
               Vision
             </Typography>

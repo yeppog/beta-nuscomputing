@@ -22,7 +22,7 @@ function Guide(props) {
   return <div>
     <Box mt={4} ml={(props.padding) + 'px'}>
       <Typography variant={props.headerSize}>{props.title}</Typography>
-      {props.content ? <Typography variant='body1'>{props.content}</Typography> : null}
+      {props.content ? <Box mb={2}><Typography variant='body1'>{props.content}</Typography></Box> : null}
     </Box>
     {props.questions ? props.questions.map(question => 
       <Accordion>
@@ -433,7 +433,11 @@ function GuidesPage() {
     <Typography variant='body1'>
       Listed here are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
     </Typography>
-    {guides.map(guide => <Guide {...guide} headerSize='h3' padding='0'></Guide>)}
+    {guides.map((guide, index) =>
+      <Box mt={index != 0 ? 16 : 8}>
+        <Guide {...guide} headerSize='h4' padding='0'></Guide>
+      </Box>
+    )}
   </BaseContainer>
 }
 

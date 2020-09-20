@@ -74,8 +74,11 @@ const RecruitmentDetails = (props) => {
         {props.name}
       </Typography>
       <Spacer/>
-      <Hidden smDown>
-        <SignUpButton/>
+      <Hidden mdDown>
+        <div>
+
+          <SignUpButton/>
+        </div>
       </Hidden>
     </Box>
     <Box mt={4}>

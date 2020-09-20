@@ -4,8 +4,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import SEO from './seo'
 import TopBar from './top-bar'
 import Footer from './footer'
-import Container from '@material-ui/core/Container'
-import { Toolbar } from '@material-ui/core'
+import { Box, Container, Toolbar, useMediaQuery } from '@material-ui/core'
 
 const theme = createMuiTheme({
   palette: {
@@ -40,7 +39,7 @@ const theme = createMuiTheme({
     values: {
       xs: 0,
       sm: 600,
-      md: 960,
+      md: 1000,
       lg: 1350,
       xl: 1920,
     },
@@ -48,13 +47,16 @@ const theme = createMuiTheme({
 });
 
 function BaseContainer(props) {
+  const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
   return <MuiThemeProvider theme = { theme }>
     <SEO title='Home' />
     <TopBar/>
     <Toolbar/>
-    <Container fixed>
-      {props.children}
-    </Container>
+    <Box py={8}>
+      <Container fixed maxWidth={lgDown ? 'md' : 'lg'}>
+        {props.children}
+      </Container>
+    </Box>
     <Footer/>
   </MuiThemeProvider>;
 }

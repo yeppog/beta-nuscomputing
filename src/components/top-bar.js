@@ -74,17 +74,17 @@ const navigationLinks = [
     title: 'About',
     link: '/about',
   },
-  {
-    title: 'People',
-    link: '',
-  },
+  // {
+  //   title: 'People',
+  //   link: '',
+  // },
   {
     title: 'Services',
-    link: '',
+    link: '/services',
   },
   {
     title: 'Sports',
-    link: '',
+    link: '/sports',
   },
   {
     title: 'Student Guide',
