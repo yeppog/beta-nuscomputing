@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `NUS Students' Computing Club`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `NUS Students' Computing Club Website`,
+    description: `The website for NUS Students' Computing Club, updated for 2020`,
+    author: `@jeffsieu`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

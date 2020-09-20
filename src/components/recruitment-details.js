@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Box, Button, Divider, Hidden, Typography } from '@material-ui/core'
+import { Avatar, Box, Button, Divider, Grid, Hidden, Typography } from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as GatsbyLink } from 'gatsby';
@@ -35,11 +35,12 @@ function nextHeaderSize(headerSize) {
 
 const Section = (section) => {
   if (section.divider)
-    return <Box mt={4}>
+    return <Box mt={6}>
       <Divider></Divider>
     </Box>
+  const marginTop = headerSizes.indexOf('subtitle1') - headerSizes.indexOf(section.headerSize) ;
   return <div>
-    <Box mt={4}>
+    <Box mt={marginTop * 2}>
       <Typography variant={section.headerSize}>{section.title}</Typography>
     </Box>
     <Typography variant='body1' component='span'>
@@ -51,10 +52,14 @@ const Section = (section) => {
           </ul>
           : null
       }
-      
     </Typography>
-    
-    {section.subsections ? section.subsections.map((subsection, index) => <Section key={index} {...subsection} headerSize={nextHeaderSize(section.headerSize)} ></Section>) : null}
+    {section.subsections ?
+        <Box mt={0}>
+          {section.subsections.map((subsection, index) => 
+            <Section key={index} {...subsection} headerSize={nextHeaderSize(section.headerSize)}/>)}
+        </Box>
+        
+        : null}
   </div>;
 }
 
@@ -81,19 +86,36 @@ const RecruitmentDetails = (props) => {
     <Box mt={4}>
       <Typography variant='h4'>The Team</Typography>
     </Box>
-    <Box display='flex' flexDirection="row" mt={4}>
-      <Spacer/>
-        {props.team.people.map((person, index) =>
-          <Box key={index} display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
-            <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replace(/ /g, '')].childImageSharp.fluid}/>
-            <Box mt={1}>
-              <Typography variant='h6'>{person.name}</Typography>
+    <Hidden smDown>
+      <Box display='flex' flexDirection="row" mt={4}>
+        <Spacer/>
+          {props.team.people.map((person, index) =>
+            <Box key={index} display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
+              <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replace(/ /g, '')].childImageSharp.fluid}/>
+              <Box mt={1}>
+                <Typography variant='h6'>{person.name}</Typography>
+              </Box>
+              <Typography variant='overline' style={{lineHeight: '1', textAlign: 'center'}}>{person.position}</Typography>
             </Box>
-            <Typography variant='overline' style={{lineHeight: '1'}}>{person.position}</Typography>
-          </Box>
+          )}
+        <Spacer/>
+      </Box>
+    </Hidden>
+    <Hidden mdUp>
+      <Grid container>
+        {props.team.people.map((person, index) =>
+          <Grid item xs={6} key={index}>
+            <Box mt={4} style={{ display: 'flex', flexDirection: 'column'}}  justifyContent='center' alignItems='center' >
+              <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replace(/ /g, '')].childImageSharp.fluid} />
+              <Box mt={1}>
+                <Typography variant='h6'>{person.name}</Typography>
+              </Box>
+              <Typography variant='overline' style={{ lineHeight: '1', textAlign: 'center' }}>{person.position}</Typography>
+            </Box>
+          </Grid>
         )}
-      <Spacer/>
-    </Box>
+      </Grid>
+    </Hidden>
     {props.sections.map(
       (section, index) => <Section key={index} {...section} headerSize='h4'></Section>
     )}
