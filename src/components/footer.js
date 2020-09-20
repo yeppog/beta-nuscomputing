@@ -1,9 +1,9 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import { Box, Container, Grid, IconButton, Icon, Typography } from '@material-ui/core'
+import { Box, Container, Grid, Hidden, IconButton, Icon, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import Logo from './logo'
+import WhiteLogo from './white-logo'
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -13,14 +13,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Copyright = () =>
+  <Typography variant='caption'>
+    <br/>
+    Copyright © NUS Students' Computing Club<br/>
+    Page designed by <Link href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
+  </Typography>;
+
 const Footer = ({ siteTitle }) => {
   const classes = useStyles();
   return <footer className={classes.footer}>
     <Container>
     <Box mt={4} p={4}></Box>
       <Grid container spacing={8}>
-        <Grid item xs={12} md={4}>
-          <Logo></Logo>
+        <Grid item xs={12} md={6} lg={4}>
+          <WhiteLogo></WhiteLogo>
           <IconButton aria-label="facebook" target='_blank' href='https://www.facebook.com/nuscomputing'>
             <Icon class="fab fa-facebook"style={{ color: 'white' }} ></Icon>
           </IconButton>
@@ -39,8 +46,11 @@ const Footer = ({ siteTitle }) => {
           <IconButton aria-label="email" href='mailto:connect@nuscomputing.com'>
             <Icon class="fas fa-envelope"style={{ color: 'white' }} ></Icon>
           </IconButton>
+          <Hidden smDown>
+            <Copyright></Copyright>
+          </Hidden>
         </Grid>
-        <Grid item sm={6} md={4}>
+        <Grid item sm={6} md={6} lg={4}>
           <Typography variant='h6'>
             Our History
           </Typography>
@@ -48,13 +58,28 @@ const Footer = ({ siteTitle }) => {
             Established when NUS School of Computing gained independence as a separate faculty in 1998, the NUS Students’ Computing Club is the official faculty club and sole union representative of all undergraduates in NUS School of Computing. The club has since been taking care of the student life in NUS School of Computing by organising various events and activities to promote campus vibrancy. We safeguard the interest of our undergraduates, ensure their voices are heard, provide welfare, and form the bridge between our students and the school.
           </Typography>
         </Grid>
-        <Grid item sm={6} md={4}>
-          <Typography variant='h6'>
-            Vision
-          </Typography>
-          <Typography variant='body1'>
-            NUS Students’ Computing Club serves to continually support our faculty, to build close-knitted relationships among Computing Club members past and present and drive the charge for campus vibrancy.
-          </Typography>
+        <Hidden smDown lgUp>
+          <Grid item md={6}></Grid>
+        </Hidden>
+        <Grid item sm={6} md={6} md={4}>
+          <Hidden only={['sm', 'lg', 'xl']}>
+            <Box mt={-4}>
+              <Typography variant='h6'>
+                Vision
+              </Typography>
+              <Typography variant='body1'>
+                NUS Students’ Computing Club serves to continually support our faculty, to build close-knitted relationships among Computing Club members past and present and drive the charge for campus vibrancy.
+              </Typography>
+            </Box>
+          </Hidden>
+          <Hidden only={['xs', 'md']}>
+            <Typography variant='h6'>
+              Vision
+            </Typography>
+            <Typography variant='body1'>
+              NUS Students’ Computing Club serves to continually support our faculty, to build close-knitted relationships among Computing Club members past and present and drive the charge for campus vibrancy.
+            </Typography>
+          </Hidden>
           <Box mt={4}>
             <Typography variant='h6'>
               Mission
@@ -64,9 +89,13 @@ const Footer = ({ siteTitle }) => {
             </Typography>
           </Box>
         </Grid>
+        <Grid item xs={12}>
+          <Hidden mdUp>
+              <Copyright></Copyright>
+          </Hidden>
+        </Grid>
       </Grid>
     </Container>
-      
   </footer>
 } 
 

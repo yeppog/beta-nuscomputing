@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   links: {
-      outline: 'none',
+    fontFamily: 'Josefin Sans, sans-serif',
+    outline: 'none',
     '& > *': {
       marginRight: theme.spacing(4),
     },
@@ -96,7 +97,7 @@ function TopBar({props}) {
           </div>
           <Hidden mdDown>
             <Typography style={{ color: 'white' }} className={classes.links}>
-              <Link href='#' onClick={preventDefault}>
+              <Link href='/about'>
                 About
               </Link>
               <Link href='#' onClick={preventDefault}>
@@ -108,8 +109,8 @@ function TopBar({props}) {
               <Link href='#' onClick={preventDefault}>
                 Sports
               </Link>
-              <Link href='#' onClick={preventDefault}>
-                Guides
+              <Link component={GatsbyLink} to='/guides'>
+                Student Guide
               </Link>
               <Link target='_blank' href='https://freshmen.nuscomputing.com/'>
                 FOP

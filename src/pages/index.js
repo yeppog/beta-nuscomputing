@@ -1,7 +1,5 @@
 import React from 'react'
-
 import OutlinedCard from '../components/outlined-card'
-
 import BaseContainer from '../components/base-container';
 
 function IndexPage() {

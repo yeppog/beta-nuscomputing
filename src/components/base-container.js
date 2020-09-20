@@ -22,6 +22,18 @@ const theme = createMuiTheme({
       'Josefin Sans',
       'sans-serif',
     ].join(','),
+    body1: {
+      fontFamily: [
+        'Raleway',
+        'sans-serif',
+      ].join(','),
+    },
+    body2: {
+      fontFamily: [
+        'Raleway',
+        'sans-serif',
+      ].join(','),
+    },
   }
 });
 
