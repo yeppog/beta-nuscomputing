@@ -2,7 +2,7 @@ import React from 'react'
 import { Avatar, Box, Button, Divider, Grid, Hidden, Typography } from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as GatsbyLink } from 'gatsby';
+import { navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import SignUpButton from './sign-up-button'
 
@@ -62,14 +62,17 @@ const Section = (section) => {
 
 const RecruitmentDetails = (props) => {
   const classes = useStyles();
-  return <div>
+  const BackButton = () =>
     <Button
-        color="primary"
-        variant='outlined'
-        className={classes.button}
-        size="large"
-        startIcon={<ArrowBack />}
-        component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
+      color="primary"
+      variant='outlined'
+      className={classes.button}
+      size="large"
+      onClick={() => navigate(-1)}
+      startIcon={<ArrowBack />}>Back to recruitment page
+    </Button>;
+  return <div>
+    <BackButton></BackButton>
     <Box display='flex' mt={4}>
       <Typography variant='h3'>
         {props.name}
@@ -119,32 +122,19 @@ const RecruitmentDetails = (props) => {
     )}
     <Hidden xsDown>
       <Box mt={4} display='flex'>
-        <Button
-          color="primary"
-          variant='outlined'
-          className={classes.button}
-          size="large"
-          startIcon={<ArrowBack />}
-          component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
-          <Spacer/>
-          <Box display='flex' flexDirection='column' justifyContent='center'>
-            <SignUpButton/>
-          </Box>
+        <BackButton></BackButton>
+        <Spacer />
+        <Box display='flex' flexDirection='column' justifyContent='center'>
+          <SignUpButton />
+        </Box>
       </Box>
     </Hidden>
     <Hidden smUp>
-      
-    <Box mt={4}>
-      <Button
-        color="primary"
-        variant='outlined'
-        className={classes.button}
-        size="large"
-        startIcon={<ArrowBack />}
-        component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
-        <Spacer/>
+      <Box mt={4}>
+        <BackButton></BackButton>
+        <Spacer />
         <Box ml={1}>
-          <SignUpButton/>
+          <SignUpButton />
         </Box>
       </Box>
     </Hidden>
