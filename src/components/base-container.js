@@ -52,11 +52,13 @@ function BaseContainer(props) {
     <SEO {...props} />
     <TopBar/>
     <Toolbar/>
-    <Box py={8}>
-      <Container fixed maxWidth={lgDown ? 'md' : 'lg'}>
-        {props.children}
-      </Container>
-    </Box>
+    <div>
+      <Box py={8}>
+        <Container fixed maxWidth={lgDown ? 'md' : 'lg'}>
+          {props.children}
+        </Container>
+      </Box>
+    </div>
     <Footer/>
   </MuiThemeProvider>;
 }

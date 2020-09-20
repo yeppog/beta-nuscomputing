@@ -124,7 +124,7 @@ function TopBar(props) {
   };
 
   return (
-    <nav>
+    <header>
       <ElevationScroll {...props}>
         <AppBar className={classes.root}>
           <Toolbar className={classes.appBar}>
@@ -181,32 +181,34 @@ function TopBar(props) {
             role="presentation"
             onClick={toggleDrawer('opened', false)}
             onKeyDown={toggleDrawer('opened', false)}>
-            <List>
-              <Box mb={4} ml={4}>
-                <ListItem>
-                  <ListItemText disableTypography>
-                    <Typography variant='h5' className={classes.computingClub}>
-                      <GatsbyLink to='/'>NUS Students'<br/>Computing Club</GatsbyLink>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-              </Box>
-              {navigationLinks.map(link => (
-                <ListItem key={link.title} button component='a' href={link.link} target={link.newTab ? '_blank' : '_self'}>
-                  <ListItemText disableTypography>
-                    <Box pl={0}>
-                      <Typography color='primary' variant='h6'>
-                        {link.title}
+            <nav>
+              <List>
+                <Box mb={4} ml={4}>
+                  <ListItem>
+                    <ListItemText disableTypography>
+                      <Typography variant='h5' className={classes.computingClub}>
+                        <GatsbyLink to='/'>NUS Students'<br/>Computing Club</GatsbyLink>
                       </Typography>
-                    </Box>
-                  </ListItemText>
-                </ListItem>
-              ))}
-            </List>
+                    </ListItemText>
+                  </ListItem>
+                </Box>
+                {navigationLinks.map(link => (
+                  <ListItem key={link.title} button component='a' href={link.link} target={link.newTab ? '_blank' : '_self'}>
+                    <ListItemText disableTypography>
+                      <Box pl={0}>
+                        <Typography color='primary' variant='h6'>
+                          {link.title}
+                        </Typography>
+                      </Box>
+                    </ListItemText>
+                  </ListItem>
+                ))}
+              </List>
+            </nav>
           </Box>
         </Drawer>
       </React.Fragment>
-    </nav>
+    </header>
   );
 }
     
