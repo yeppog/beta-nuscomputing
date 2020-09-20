@@ -106,6 +106,9 @@ const navigationLinks = [
 function TopBar(props) {
   const classes = useStyles();
   const xxs = useMediaQuery('(max-width:400px)');
+  const theme = useTheme();
+  const mdDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const hideComputingLogo = useMediaQuery('(max-width:1170px)') * useMediaQuery(theme.breakpoints.up('md'));
   const [state, setState] = React.useState({
     opened: false,
   });
@@ -117,8 +120,6 @@ function TopBar(props) {
     setState({ ...state, [anchor]: open });
   };
 
-  const theme = useTheme();
-  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   return (
     <div>
       <ElevationScroll {...props}>
@@ -135,10 +136,10 @@ function TopBar(props) {
               </Hidden>
               <Hidden xsDown lgUp>
                 <Typography variant='h6' className={classes.computingClub}>
-                  <GatsbyLink to='/'>
+                  {!hideComputingLogo ? <GatsbyLink to='/'>
                     NUS Students'<br/>
                     Computing Club
-                  </GatsbyLink>
+                  </GatsbyLink> : null}
                 </Typography>
               </Hidden>
               <Hidden smUp>
@@ -150,14 +151,14 @@ function TopBar(props) {
                 </Typography>
               </Hidden>
             </div>
-            <Hidden mdDown>
+            <Hidden smDown>
               <Typography style={{ color: 'white' }} className={classes.links}>
                 {navigationLinks.map(link => <Link href={link.link}>{link.title}</Link>)}
               </Typography>
             </Hidden>
             <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
   
-            <Hidden lgUp>
+            <Hidden mdUp>
               <Box ml={1}>
                 <IconButton edge="end" color="primary" aria-label="menu" onClick={toggleDrawer('opened', true)}>
                   <MenuIcon />

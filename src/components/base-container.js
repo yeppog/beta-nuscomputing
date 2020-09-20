@@ -52,7 +52,7 @@ function BaseContainer(props) {
     <SEO title='Home' />
     <TopBar/>
     <Toolbar/>
-    <Container maxWidth='lg'>
+    <Container fixed>
       {props.children}
     </Container>
     <Footer/>
