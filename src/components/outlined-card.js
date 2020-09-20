@@ -1,14 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Button, Typography, Card, CardActions, CardActionArea, CardContent, createStyles } from '@material-ui/core';
 import { Link as GatsbyLink } from 'gatsby';
 import Img from 'gatsby-image';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => 
+  createStyles({
   root: {
     minWidth: 275,
   },
@@ -23,25 +20,26 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
-});
+}));
 
 export default function OutlinedCard(props) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
-      {props.image ? <Img fluid={props.image.childImageSharp.fluid} /> : null}
-      <CardContent>
-        <Typography variant='h5'>
-          {props.title}
-        </Typography>
-        <Typography variant="body2" component="p">
-          {props.body}
-        </Typography>
-      </CardContent>
-      <CardActions>
-      <Button size="small" component={GatsbyLink} color="secondary" to={props.link}>Learn More</Button>
-      </CardActions>
+    <Card className={classes.root}>
+      <CardActionArea href={props.link}>
+        {props.image ? <Img fluid={props.image.childImageSharp.fluid} /> : null}
+        <CardContent>
+          <Typography variant='h5'>
+            {props.title}
+          </Typography>
+          <Typography variant="body2" component="p">
+            {props.body}
+          </Typography>
+        </CardContent>
+        <CardActions>
+        </CardActions>
+      </CardActionArea>
     </Card>
   );
 }

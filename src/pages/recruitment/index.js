@@ -43,7 +43,7 @@ const data = [
   },
   {
     title: 'Welfare',
-    body: 'Have some welfare',
+    body: 'Join us today to promote the mental-wellness of the student body!',
     link: '/recruitment/welfare',
   },
 ]
@@ -133,7 +133,6 @@ function RecruitmentPage() {
         {data.map((item) =>
           <Grid item xs={12} md={6} key={item.title}>
             <OutlinedCard {...item} image={images[item.title.replace(' ', '')]}></OutlinedCard>
-            {/* <Paper className={classes.paper}>xs=12</Paper> */}
           </Grid>
         )}
       </Grid>
