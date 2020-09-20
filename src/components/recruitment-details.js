@@ -54,11 +54,8 @@ const Section = (section) => {
       }
     </Typography>
     {section.subsections ?
-        <Box mt={0}>
-          {section.subsections.map((subsection, index) => 
-            <Section key={index} {...subsection} headerSize={nextHeaderSize(section.headerSize)}/>)}
-        </Box>
-        
+          section.subsections.map((subsection, index) => 
+            <Section key={index} {...subsection} headerSize={nextHeaderSize(section.headerSize)}/>)
         : null}
   </div>;
 }
@@ -68,6 +65,7 @@ const RecruitmentDetails = (props) => {
   return <div>
     <Button
         color="primary"
+        variant='outlined'
         className={classes.button}
         size="large"
         startIcon={<ArrowBack />}
@@ -119,9 +117,37 @@ const RecruitmentDetails = (props) => {
     {props.sections.map(
       (section, index) => <Section key={index} {...section} headerSize='h4'></Section>
     )}
-    <Box mt={4} mb={4}>
-      <SignUpButton/>
-    </Box>
+    <Hidden xsDown>
+      <Box mt={4} display='flex'>
+        <Button
+          color="primary"
+          variant='outlined'
+          className={classes.button}
+          size="large"
+          startIcon={<ArrowBack />}
+          component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
+          <Spacer/>
+          <Box display='flex' flexDirection='column' justifyContent='center'>
+            <SignUpButton/>
+          </Box>
+      </Box>
+    </Hidden>
+    <Hidden smUp>
+      
+    <Box mt={4}>
+      <Button
+        color="primary"
+        variant='outlined'
+        className={classes.button}
+        size="large"
+        startIcon={<ArrowBack />}
+        component={GatsbyLink} to='/recruitment'>Back to recruitment page</Button>
+        <Spacer/>
+        <Box ml={1}>
+          <SignUpButton/>
+        </Box>
+      </Box>
+    </Hidden>
   </div>
 }
 

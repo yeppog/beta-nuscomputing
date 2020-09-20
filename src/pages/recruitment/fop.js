@@ -13,7 +13,7 @@ const FOP = () => {
           position: 'Director',
         },
         {
-          name: 'Zhao Wei',
+          name: 'Lo Zhao Wei',
           position: 'Deputy Director',
         },
       ],
@@ -26,7 +26,7 @@ const FOP = () => {
               }
             }
           }
-          ZhaoWei: file(relativePath: { eq: "zhaowei.jpg" }) {
+          LoZhaoWei: file(relativePath: { eq: "zhaowei.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 400, maxHeight: 250) {
                 ...GatsbyImageSharpFluid
