@@ -42,21 +42,19 @@ const Section = (section) => {
     <Box mt={4}>
       <Typography variant={section.headerSize}>{section.title}</Typography>
     </Box>
-    <Typography variant='body1'>
+    <Typography variant='body1' component='span'>
       {section.content}
       {
         section.bullets ?
-          <Box mt={2}>
-            <ul>
-              {section.bullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
-          </Box>
+          <ul>
+            {section.bullets.map((bullet, index) => <li key={index}>{bullet}</li>)}
+          </ul>
           : null
       }
       
     </Typography>
     
-    {section.subsections ? section.subsections.map((subsection) => <Section {...subsection} headerSize={nextHeaderSize(section.headerSize)} ></Section>) : null}
+    {section.subsections ? section.subsections.map((subsection, index) => <Section key={index} {...subsection} headerSize={nextHeaderSize(section.headerSize)} ></Section>) : null}
   </div>;
 }
 
@@ -74,9 +72,8 @@ const RecruitmentDetails = (props) => {
         {props.name}
       </Typography>
       <Spacer/>
-      <Hidden mdDown>
+      <Hidden lgDown>
         <div>
-
           <SignUpButton/>
         </div>
       </Hidden>
@@ -87,7 +84,7 @@ const RecruitmentDetails = (props) => {
     <Box display='flex' flexDirection="row" mt={4}>
       <Spacer/>
         {props.team.people.map((person, index) =>
-          <Box display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
+          <Box key={index} display="flex" m="auto" flexDirection="column" justify='center' alignItems='center' ml={index == 0 ? 0 : 4}>
             <Avatar className={classes.large} alt={person.name} component={Img} fluid={props.team.query[person.name.replace(/ /g, '')].childImageSharp.fluid}/>
             <Box mt={1}>
               <Typography variant='h6'>{person.name}</Typography>
@@ -98,7 +95,7 @@ const RecruitmentDetails = (props) => {
       <Spacer/>
     </Box>
     {props.sections.map(
-      (section) => <Section {...section} headerSize='h4'></Section>
+      (section, index) => <Section key={index} {...section} headerSize='h4'></Section>
     )}
     <Box mt={4} mb={4}>
       <SignUpButton/>

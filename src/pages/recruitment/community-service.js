@@ -1,6 +1,5 @@
 import React from 'react'
 import BaseContainer from '../../components/base-container'
-import SEO from '../../components/seo'
 import { useStaticQuery, graphql } from 'gatsby';
 import RecruitmentDetails from '../../components/recruitment-details'
 
@@ -108,14 +107,6 @@ const CommunityService = () => {
                 bullets: [
                   'Meet the aesthetic needs of the events and activities',
                   'Plan for publicity and outreach',
-                ],
-              },
-              {
-                title: 'Program Coordinator',
-                bullets: [
-                  'Plan fundraisers for our beneficiary',
-                  'Plan the engagement sessions for our beneficiary',
-                  'Plan the club’s involvement in the Rag & Flag Carnival',
                 ],
               },
             ],
@@ -231,8 +222,7 @@ const CommunityService = () => {
     ],
   }
 
-  return <BaseContainer>
-    <SEO title={props.name} />
+  return <BaseContainer title={props.name}>
     <RecruitmentDetails {...props}></RecruitmentDetails>
   </BaseContainer>
 }

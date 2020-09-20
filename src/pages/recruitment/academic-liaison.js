@@ -1,6 +1,5 @@
 import React from 'react'
 import BaseContainer from '../../components/base-container'
-import SEO from '../../components/seo'
 import { useStaticQuery, graphql } from 'gatsby';
 import RecruitmentDetails from '../../components/recruitment-details'
 
@@ -59,8 +58,7 @@ const AcademicLiaison = () => {
     ],
   }
 
-  return <BaseContainer>
-    <SEO title={props.name} />
+  return <BaseContainer title={props.name}>
     <RecruitmentDetails {...props}></RecruitmentDetails>
   </BaseContainer>
 }

@@ -2,10 +2,10 @@ import React from 'react'
 import BaseContainer from '../components/base-container';
 import { Box, Grid, Link, Typography, Divider } from '@material-ui/core'
 
-function ServicesPage() {
-  return <BaseContainer>
+function SportsPage() {
+  return <BaseContainer title='Sports'>
     <Typography variant='h3'>IFG 2020</Typography>
-    <Typography variant='body1'>
+    <Typography variant='body1' component={'span'}>
       Welcome to SEM1 & the long-waited IFG that is finally in running so SIGN UP NOW!!!
     <br />
       <br />
@@ -100,4 +100,4 @@ function ServicesPage() {
   </BaseContainer>;
 }
 
-export default ServicesPage
+export default SportsPage

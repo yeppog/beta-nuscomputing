@@ -1,6 +1,5 @@
-import { Link } from "gatsby"
 import React from "react"
-import { Box, Container, Grid, Hidden, IconButton, Icon, Typography, useMediaQuery, useTheme } from '@material-ui/core'
+import { Box, Container, Grid, Hidden, IconButton, Icon, Link, Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import WhiteLogo from './white-logo'
 
@@ -30,22 +29,22 @@ const Footer = ({ siteTitle }) => {
         <Grid item xs={12} lg={6} xl={4}>
           <WhiteLogo></WhiteLogo>
           <IconButton aria-label="facebook" target='_blank' href='https://www.facebook.com/nuscomputing'>
-            <Icon class="fab fa-facebook"style={{ color: 'white' }} ></Icon>
+            <Icon className="fab fa-facebook" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <IconButton aria-label="instagram" target='_blank' href='https://www.instagram.com/NUSComputingClub'>
-            <Icon class="fab fa-instagram"style={{ color: 'white' }} ></Icon>
+            <Icon className="fab fa-instagram" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <IconButton aria-label="telegram" target='_blank' href='https://t.me/nuscomputingclub'>
-            <Icon class="fab fa-telegram"style={{ color: 'white' }} ></Icon>
+            <Icon className="fab fa-telegram" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <IconButton aria-label="youtube" target='_blank' href='https://www.youtube.com/channel/UCVd-qsSFF328UUqcNxudy0w'>
-            <Icon class="fab fa-youtube"style={{ color: 'white' }} ></Icon>
+            <Icon className="fab fa-youtube" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <IconButton aria-label="github" target='_blank' href='https://github.com/NUSComputingDev'>
-            <Icon class="fab fa-github"style={{ color: 'white' }} ></Icon>
+            <Icon className="fab fa-github" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <IconButton aria-label="email" href='mailto:connect@nuscomputing.com'>
-            <Icon class="fas fa-envelope"style={{ color: 'white' }} ></Icon>
+            <Icon className="fas fa-envelope" style={{ color: 'white' }} ></Icon>
           </IconButton>
           <Hidden smDown>
             <Copyright></Copyright>

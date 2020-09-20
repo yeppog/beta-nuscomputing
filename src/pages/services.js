@@ -3,7 +3,7 @@ import BaseContainer from '../components/base-container';
 import { Box, Link, Typography } from '@material-ui/core'
 
 function ServicesPage() {
-  return <BaseContainer>
+  return <BaseContainer title='Services'>
     <Typography variant='h3'>Services</Typography>
     <Typography variant='body1'>We provides various logistical services that students can apply for.</Typography>
     <Box mt={4}>

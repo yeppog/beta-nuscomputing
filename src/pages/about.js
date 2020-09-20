@@ -3,7 +3,7 @@ import BaseContainer from '../components/base-container';
 import { Box, Typography } from '@material-ui/core';
 
 function AboutPage() {
-  return <BaseContainer>
+  return <BaseContainer title='About'>
       <Box mt={4} mb={4}>
         <Typography variant='h3'>
           About NUS Students' Computing Club

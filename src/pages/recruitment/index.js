@@ -110,7 +110,7 @@ function RecruitmentPage() {
         }
       }
     `)
-  return <BaseContainer>
+  return <BaseContainer title='23rd MC Subcommittee Recruitment'>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Box mt={4}>

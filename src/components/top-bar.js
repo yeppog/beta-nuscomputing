@@ -124,7 +124,7 @@ function TopBar(props) {
   };
 
   return (
-    <div>
+    <nav>
       <ElevationScroll {...props}>
         <AppBar className={classes.root}>
           <Toolbar className={classes.appBar}>
@@ -156,7 +156,7 @@ function TopBar(props) {
             </div>
             <Hidden smDown>
               <Typography style={{ color: 'white' }} className={classes.links}>
-                {navigationLinks.map(link => <Link href={link.link} target={link.newTab ? '_blank' : '_self'} rel='noreferrer'>{link.title}</Link>)}
+                {navigationLinks.map(link => <Link key={link.title} href={link.link} target={link.newTab ? '_blank' : '_self'} rel='noreferrer'>{link.title}</Link>)}
               </Typography>
             </Hidden>
             <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
@@ -206,7 +206,7 @@ function TopBar(props) {
           </Box>
         </Drawer>
       </React.Fragment>
-    </div>
+    </nav>
   );
 }
     

@@ -8,7 +8,7 @@ const BlueLogo = () => {
       logo: file(relativePath: { eq: "compclublogocolor.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }

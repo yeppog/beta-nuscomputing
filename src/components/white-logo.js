@@ -8,7 +8,7 @@ const WhiteLogo = () => {
       logo: file(relativePath: { eq: "compclublogo.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_noBase64
           }
         }
       }

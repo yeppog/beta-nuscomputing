@@ -25,19 +25,19 @@ function Guide(props) {
       {props.content ? <Box mb={2}><Typography variant='body1'>{props.content}</Typography></Box> : null}
     </Box>
     {props.questions ? props.questions.map(question => 
-      <Accordion>
+      <Accordion key={question.title}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography variant='h6'>{question.title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant='body1'>
+          <Typography variant='body1' component={'span'}>
             {question.content}
           </Typography>
         </AccordionDetails>
       </Accordion>
     ) : null}
     {props.subsections ? props.subsections.map(subsections => 
-      <Guide {...subsections} headerSize={nextHeaderSize(props.headerSize)} padding={props.padding + 16}></Guide>
+      <Guide key={subsections.title} {...subsections} headerSize={nextHeaderSize(props.headerSize)} padding={props.padding + 16}></Guide>
     ) : null}
   </div>
 }
@@ -426,7 +426,7 @@ function GuidesPage() {
       ],
     }
   ]
-  return <BaseContainer>
+  return <BaseContainer title='Guides'>
     <Typography variant='h3'>
       Guides
     </Typography>
@@ -434,7 +434,7 @@ function GuidesPage() {
       Listed here are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
     </Typography>
     {guides.map((guide, index) =>
-      <Box mt={index != 0 ? 16 : 8}>
+      <Box mt={index != 0 ? 16 : 8} key={index}>
         <Guide {...guide} headerSize='h4' padding='0'></Guide>
       </Box>
     )}
