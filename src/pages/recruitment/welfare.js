@@ -56,7 +56,7 @@ const Welfare = () => {
         title: 'Responsibilities',
         bullets: [
           `Assist the director and deputy director in facilitating the planning and execution for events`,
-          `-Opportunity to liaise with vendors and work internally with other cells to create other events to promote student life`,
+          `Opportunity to liaise with vendors and work internally with other cells to create other events to promote student life`,
         ],
       },
     ],

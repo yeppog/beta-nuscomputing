@@ -1,13 +1,11 @@
-import React from "react"
+import React from 'react'
+import BaseContainer from '../components/base-container';
+import { Typography } from '@material-ui/core'
 
-import SEO from "../components/seo"
-
-const NotFoundPage = () => (
-  <div>
-    <SEO title="404: Not found" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </div>
-)
+function NotFoundPage() {
+  return <BaseContainer title='404 Not Found'>
+    <Typography variant='h1'>404 Page not found :(</Typography>
+  </BaseContainer>;
+}
 
 export default NotFoundPage

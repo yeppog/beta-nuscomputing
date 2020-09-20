@@ -8,9 +8,11 @@ function ServicesPage() {
     <Typography variant='body1'>We provides various logistical services that students can apply for.</Typography>
     <Box mt={4}>
       <Typography variant='h4'>Locker Service</Typography>
-      <Typography variant='body1'>Application for locker services is open all year round. Simply fill in <Link href='https://bit.ly/soclocker_application'>
+      <Typography variant='body1'>Application for locker services is open all year round. Simply fill in <Link color='secondary' href='https://bit.ly/soclocker_application'>
         this form
-      </Link> to get a locker located in School of Computing! Do spend a minute or so reading our locker usage  Terms &amp; Conditions and do remember to clear away your stuff at the end of your locker validity period or risk having them disposed away!</Typography>
+      </Link> to get a locker located in School of Computing! Do spend a minute or so reading our locker usage <Link color='secondary' href='https://bit.ly/soclockerterms'>
+        Terms &amp; Conditions
+      </Link> and do remember to clear away your stuff at the end of your locker validity period or risk having them disposed away!</Typography>
     </Box>
     <Box mt={4}>
       <Typography variant='h4'>Extension Cord Loan</Typography>
@@ -22,7 +24,7 @@ function ServicesPage() {
     </Box>
     <Box mt={4}>
       <Typography variant='h4'>Need Help?</Typography>
-      <Typography variant='body1'>Feel free to contact us at <Link href='mailto:connect@nuscomputing.com'>
+      <Typography variant='body1'>Feel free to contact us at <Link color='secondary' href='mailto:connect@nuscomputing.com'>
         connect@nuscomputing.com
       </Link> if you have any further queries.</Typography>
     </Box>

@@ -49,7 +49,7 @@ const theme = createMuiTheme({
 function BaseContainer(props) {
   const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
   return <MuiThemeProvider theme = { theme }>
-    <SEO title='Home' />
+    <SEO {...props} />
     <TopBar/>
     <Toolbar/>
     <Box py={8}>

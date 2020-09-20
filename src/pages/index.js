@@ -3,7 +3,7 @@ import BaseContainer from '../components/base-container';
 import { Typography } from '@material-ui/core'
 
 function IndexPage() {
-  return <BaseContainer>
+  return <BaseContainer title='Home'>
     <Typography variant='h1'>The front page.</Typography>
   </BaseContainer>;
 }

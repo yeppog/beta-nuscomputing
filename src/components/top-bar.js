@@ -71,6 +71,10 @@ ElevationScroll.propTypes = {
 
 const navigationLinks = [
   {
+    title: 'Home',
+    link: '/',
+  },
+  {
     title: 'About',
     link: '/about',
   },
@@ -89,17 +93,16 @@ const navigationLinks = [
   {
     title: 'Student Guide',
     link: '/guides',
-    newTab: 'true',
   },
   {
     title: 'FOP',
     link: 'https://freshmen.nuscomputing.com/',
-    newTab: 'true',
+    newTab: true,
   },
   {
     title: 'Photos/Media',
     link: 'https://www.flickr.com/photos/137141057@N04/albums/',
-    newTab: 'true',
+    newTab: true,
   },
 ]
 
@@ -153,11 +156,10 @@ function TopBar(props) {
             </div>
             <Hidden smDown>
               <Typography style={{ color: 'white' }} className={classes.links}>
-                {navigationLinks.map(link => <Link href={link.link}>{link.title}</Link>)}
+                {navigationLinks.map(link => <Link href={link.link} target={link.newTab ? '_blank' : '_self'} rel='noreferrer'>{link.title}</Link>)}
               </Typography>
             </Hidden>
             <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
-  
             <Hidden mdUp>
               <Box ml={1}>
                 <IconButton edge="end" color="primary" aria-label="menu" onClick={toggleDrawer('opened', true)}>
@@ -190,7 +192,7 @@ function TopBar(props) {
                 </ListItem>
               </Box>
               {navigationLinks.map(link => (
-                <ListItem key={link.title} button component='a' href={link.link}>
+                <ListItem key={link.title} button component='a' href={link.link} target={link.newTab ? '_blank' : '_self'}>
                   <ListItemText disableTypography>
                     <Box pl={0}>
                       <Typography color='primary' variant='h6'>

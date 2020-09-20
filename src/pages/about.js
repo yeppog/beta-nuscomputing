@@ -41,7 +41,7 @@ function AboutPage() {
         <Typography variant='h4'>Constitution</Typography>
         <Typography variant='body1'>
           The constitution defines the framework that the NUS Students' Computing Club follows. Read
-          it <a href="https://nuscomputing.com/static/files/constitution.pdf" target="_blank" rel="noreferrer">here</a>.
+          it <a href="/constitution.pdf" target="_blank" rel="noreferrer">here</a>.
         </Typography>
       </Box>
   </BaseContainer>;
