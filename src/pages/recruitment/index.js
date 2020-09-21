@@ -121,11 +121,11 @@ function RecruitmentPage() {
           <Typography variant='body1'>
             The 23rd Management Committee is looking to recruit passionate and committed sub-committee members to serve the SoC community. Find out more about the eight cells here and join now!
           </Typography>
-          <Box mt={4}>
+          {/* <Box mt={4}>
             <Typography variant='body2' color='primary'>
               Sign-ups opening soon!
             </Typography>
-          </Box>
+          </Box> */}
           <Box mt={4} mb={2}>
             <SignUpButton></SignUpButton>
           </Box>
