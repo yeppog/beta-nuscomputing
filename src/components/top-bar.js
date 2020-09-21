@@ -17,7 +17,6 @@ import { Box, Drawer, List, IconButton, ListItem, Button, ListItemText, Hidden }
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    // top: '0'
   },
   appBar: {
     background: 'white',
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   computingClub: {
     marginLeft: '8px',
-    fontFamily: 'Memphis LT Std!important',
+    fontFamily: 'Memphis LT Std !important',
     color: '#27378f',
     lineHeight: 1,
     '& *': {
@@ -87,18 +86,18 @@ const navigationLinks = [
     link: '/services',
   },
   {
-    title: 'Sports',
-    link: '/sports',
-  },
-  {
-    title: 'Student Guide',
+    title: 'Student Guides',
     link: '/guides',
   },
   {
-    title: 'FOP',
-    link: 'https://freshmen.nuscomputing.com/',
-    newTab: true,
+    title: 'IFG 2020',
+    link: '/ifg',
   },
+  // {
+  //   title: 'FOP',
+  //   link: 'https://freshmen.nuscomputing.com/',
+  //   newTab: true,
+  // },
   {
     title: 'Photos/Media',
     link: 'https://www.flickr.com/photos/137141057@N04/albums/',

@@ -119,7 +119,7 @@ function RecruitmentPage() {
         </Grid>
         <Grid item xs={12}>
           <Typography variant='body1'>
-            The 23rd Management Committee is looking to recruit passionate and committed sub-committee members to serve the SoC community. Find out more about the eight cells here and join now!
+            The 23rd Management Committee is looking to recruit passionate and committed subcommittee members to serve the SoC community. Find out more about the eight cells here and join now!
           </Typography>
           {/* <Box mt={4}>
             <Typography variant='body2' color='primary'>

@@ -46,21 +46,27 @@ const theme = createMuiTheme({
   },
 });
 
-function BaseContainer(props) {
+function InnerContainer(props){
   const lgDown = useMediaQuery(theme.breakpoints.down('lg'));
+  return <Container fixed maxWidth={lgDown ? 'md' : 'lg'} {...props}></Container>;
+}
+
+function BaseContainer(props) {
   return <MuiThemeProvider theme = { theme }>
     <SEO {...props} />
     <TopBar/>
     <Toolbar/>
-    <div>
-      <Box py={8}>
-        <Container fixed maxWidth={lgDown ? 'md' : 'lg'}>
-          {props.children}
-        </Container>
-      </Box>
-    </div>
+    <Box py={8}>
+      {
+        props.disableWrapper
+          ? props.children
+          : <InnerContainer>
+              {props.children}
+            </InnerContainer>
+      }
+    </Box>
     <Footer/>
   </MuiThemeProvider>;
 }
 
-export default BaseContainer
+export { BaseContainer as default, InnerContainer }

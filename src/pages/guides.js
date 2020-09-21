@@ -113,8 +113,7 @@ function GuidesPage() {
       
                 <br/>
                 <br/>
-                <b>1st scenario.</b>
-                Let's assume you're aiming a Distinction (&lt; 4.50 and &gt; 4.00). If you are confident of hitting that upon graduation
+                <b>1st scenario.</b> Let's assume you're aiming a Distinction (&lt; 4.50 and &gt; 4.00). If you are confident of hitting that upon graduation
                 (i.e. your grades are quite stable, or you are confident that it will be), simply S/U anything that is B+ and below
                 as these will only pull your CAP down. Of course, ensure that you have sufficient S/Us to use it on grades lower
                 than B+ first before S/U-ing those B+.
@@ -177,27 +176,52 @@ function GuidesPage() {
       questions: [
         {
           title: 'NUS Email',
-          content: 'This is where you access your official NUS Email. All school related activities, events, internship opportunities, examination circulars, announcements, etc will be sent here.',
+          content: <div>
+            <GuideLink href='https://outlook.com/u.nus.edu'>
+              This
+            </GuideLink> is where you access your official NUS Email. All school related activities, events, internship opportunities, examination circulars, announcements, etc will be sent here.
+          </div>,
         },
         {
           title: 'myEduRec',
-          content: 'Education Records System (EduRec) is a platform for the platform where you access and settle all your administrative matters. You can view your exam schedule and results, view your transcript, apply to map your SEP modules, etc. You would also be able to change your credit debit (where NUS puts and deducts money respectively) bank account details. Click on ‘Academics’ or ‘Financials’ to access these features. ModReg@EduRec is the University’s consolidated module registration platform for all NUS students. It is used for module registration and selection of tutorial/lab slots. Selection of Modules and tutorial/lab slots would only be available during module registration (Academics -> Module Registration).',
+          content: <div>
+            <GuideLink href='https://myedurec.nus.edu.sg/'>
+              Education Records System (EduRec)
+            </GuideLink> is a platform for the platform where you access and settle all your administrative matters. You can view your exam schedule and results, view your transcript, apply to map your SEP modules, etc. You would also be able to change your credit debit (where NUS puts and deducts money respectively) bank account details. Click on ‘Academics’ or ‘Financials’ to access these features. ModReg@EduRec is the University’s consolidated module registration platform for all NUS students. It is used for module registration and selection of tutorial/lab slots. Selection of Modules and tutorial/lab slots would only be available during module registration (Academics -> Module Registration).
+          </div>,
         },
         {
           title: 'LumiNUS',
-          content: `LumiNUS is the academic platform you access most often during your semester. After your module is locked in, you will be able to find announcements by your Professors, watch the module's webcasts, view grades for continual assessment, upload assignments and download the module's contents (lecture slides, tutorial sheets, etc.) your Professors upload.`,
+          content: <div>
+            <GuideLink href='http://luminus.nus.edu.sg/'>
+              LumiNUS
+            </GuideLink> is the academic platform you access most often during your semester. After your module is locked in, you will be able to find announcements by your Professors, watch the module's webcasts, view grades for continual assessment, upload assignments and download the module's contents (lecture slides, tutorial sheets, etc.) your Professors upload.
+            </div>
         },
         {
           title: 'NUSMods',
-          content: 'This is the single module planning website that almost all undergraduates use to plan their modules, created by our very own SoC alumni. It is linked with NUS official database, so the information should be up to date and accurate (if you want to be sure, do cross check with NUS official websites). Here, you can plan your timetable, search for module information (the semester it is being offered, its prerequisites and preclusions, its reviews, etc.), get a link to share your timetable, and even find venues from the timetable!',
+          content: 
+          <div>
+            <GuideLink href='https://nusmods.com/'>
+            	NUSMods
+            </GuideLink> is the single module planning website that almost all undergraduates use to plan their modules, created by our very own SoC alumni. It is linked with NUS official database, so the information should be up to date and accurate (if you want to be sure, do cross check with NUS official websites). Here, you can plan your timetable, search for module information (the semester it is being offered, its prerequisites and preclusions, its reviews, etc.), get a link to share your timetable, and even find venues from the timetable!
+          </div>
         },
         {
           title: 'NUSync',
-          content: 'This is where you access your official NUS Email. All school related activities, events, internship opportunities, examination circulars, announcements, etc will be sent here.',
+          content: <div>
+            <GuideLink href='https://orgsync.com/login/national-university-of-singapore'>
+              NUSync
+            </GuideLink> is the portal NUS is attempting to slowly migrate to. Various announcements will be posted there, but most of the time, it will also be sent to your email. At present, we use it mainly for the Exam Welfare Pack Survey at the end of every semester.
+          </div>
         },
         {
           title: 'Facilities Booking',
-          content: 'This is where you access your official NUS Email. All school related activities, events, internship opportunities, examination circulars, announcements, etc will be sent here.',
+          content: <div>
+            You can book various venues around NUS through <GuideLink href='https://libportal.nus.edu.sg/frontend/web/bookdiscussionroom'>
+              this platform
+            </GuideLink>, for example, discussion rooms to study or for project discussions. If you’re in NUS and using NUS Wi-Fi, simply go to the Facility Booking System. Else, follow the steps provided and install NUS VPN first before booking.
+          </div>
         },
       ]
     },
@@ -426,12 +450,12 @@ function GuidesPage() {
       ],
     }
   ]
-  return <BaseContainer title='Guides'>
+  return <BaseContainer title='Student Guides'>
     <Typography variant='h3'>
-      Guides
+      Student Guides
     </Typography>
     <Typography variant='body1'>
-      Listed here are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
+      Listed below are guides, links to various platforms and FAQs which will be useful at different stages of your undergraduate life. Feel free to explore!
     </Typography>
     {guides.map((guide, index) =>
       <Box mt={index != 0 ? 16 : 8} key={index}>

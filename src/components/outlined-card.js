@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography, Card, CardActions, CardActionArea, CardContent, createStyles } from '@material-ui/core';
-import { Link as GatsbyLink } from 'gatsby';
+import { Typography, Card, CardActions, CardActionArea, CardContent, createStyles } from '@material-ui/core';
 import Img from 'gatsby-image';
 
 const useStyles = makeStyles((theme) => 
