@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `NUS Students' Computing Club Website`,
+    title: `NUS Students' Computing Club`,
     description: `The website for NUS Students' Computing Club, updated for 2020`,
     author: `@jeffsieu`,
   },
