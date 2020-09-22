@@ -210,7 +210,7 @@ const CommunityService = () => {
           },
           {
             title: 'Helpers',
-            content: `Interested in volunteering for CIP projects on the ground? Feel free to indicate your interest at tinyurl.com/now! We will contact you nearer to the event date.`,
+            content: `Interested in volunteering for CIP projects on the ground? Stay tuned for the helper recruitments!`,
             bullets: [
               'Children Service Projects: Code for Community',
               'Elderly Service Projects',
