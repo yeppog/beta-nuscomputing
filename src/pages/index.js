@@ -1,7 +1,7 @@
 import React from 'react'
-import { default as BaseContainer, InnerContainer } from '../components/base-container'
+import BaseContainer from '../components/base-container'
 import { Box, Button, Link, Typography, Divider } from '@material-ui/core'
-import { Link as GatsbyLink, useStaticQuery, graphql } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 
 function IndexPage() {
   return <BaseContainer title='Home'>

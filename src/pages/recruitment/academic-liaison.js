@@ -9,24 +9,24 @@ const AcademicLiaison = () => {
     team: {
       people: [
         {
-          name: 'Tian Mengxi',
+          name: 'Tan Shimin',
           position: 'Director',
         },
         {
-          name: 'Tan Shimin',
+          name: 'Samuel Fang',
           position: 'Deputy Director',
         },
       ],
       query: useStaticQuery(graphql`
         query {
-          TianMengxi: file(relativePath: { eq: "mengxi.jpg" }) {
+          TanShimin: file(relativePath: { eq: "shimin.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 400, maxHeight: 500) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
-          TanShimin: file(relativePath: { eq: "shimin.jpg" }) {
+          SamuelFang: file(relativePath: { eq: "samuelfang.jpg" }) {
             childImageSharp {
               fluid(maxWidth: 400, maxHeight: 400) {
                 ...GatsbyImageSharpFluid
