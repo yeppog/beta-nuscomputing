@@ -77,6 +77,10 @@ const navigationLinks = [
     title: 'About',
     link: '/about',
   },
+  {
+    title: 'Privacy',
+    link: '/privacy',
+  },
   // {
   //   title: 'People',
   //   link: '',
@@ -103,6 +107,7 @@ const navigationLinks = [
     link: 'https://www.flickr.com/photos/137141057@N04/albums/',
     newTab: true,
   },
+  
 ]
 
 function TopBar(props) {
