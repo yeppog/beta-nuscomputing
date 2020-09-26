@@ -155,7 +155,7 @@ function TopBar(props) {
             </div>
             <Hidden smDown>
               <Typography style={{ color: 'white' }} className={classes.links}>
-                {navigationLinks.map(link => <Link key={link.title} href={link.link} target={link.newTab ? '_blank' : '_self'} rel='noreferrer'>{link.title}</Link>)}
+                {navigationLinks.map(link => <Link key={link.title} href={link.link} target={link.newTab ? '_blank' : '_self'} rel={link.newTab ? 'noreferrer' : ''}>{link.title}</Link>)}
               </Typography>
             </Hidden>
             <Button variant='contained' color='primary' component={GatsbyLink} to='/recruitment'>Recruitment</Button>
@@ -192,7 +192,7 @@ function TopBar(props) {
                   </ListItem>
                 </Box>
                 {navigationLinks.map(link => (
-                  <ListItem key={link.title} button component='a' href={link.link} target={link.newTab ? '_blank' : '_self'}>
+                  <ListItem key={link.title} button component='a' href={link.link} target={link.newTab ? '_blank' : '_self'} rel={link.newTab ? 'noreferrer' : ''}>
                     <ListItemText disableTypography>
                       <Box pl={0}>
                         <Typography color='primary' variant='h6'>

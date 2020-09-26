@@ -42,7 +42,7 @@ function Guide(props) {
   </div>
 }
 
-const GuideLink = (props) => <Link color='secondary' target='_blank' {...props}>{props.children}</Link>;
+const GuideLink = (props) => <Link color='secondary' target='_blank' rel='noreferrer' {...props}>{props.children}</Link>;
 
 function GuidesPage() {
   const guides = [

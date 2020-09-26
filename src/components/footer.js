@@ -20,7 +20,7 @@ const Copyright = () =>
   <Typography variant='caption'>
     <br/>
     Copyright © NUS Students' Computing Club<br/>
-    Page designed by <Link target='_blank' href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
+    Page designed by <Link target='_blank' rel="noreferrer" href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
   </Typography>;
 
 const Footer = ({ siteTitle }) => {
@@ -35,19 +35,19 @@ const Footer = ({ siteTitle }) => {
         <Grid item xs={12} lg={6} xl={4}>
           <Box pr={lg ? 1 : !lgDown ? 2 : 0}>
             <WhiteLogo></WhiteLogo>
-            <IconButton aria-label="facebook" target='_blank' href='https://www.facebook.com/nuscomputing'>
+            <IconButton aria-label="facebook" target='_blank' rel='noreferrer' href='https://www.facebook.com/nuscomputing'>
               <Icon className="fab fa-facebook" style={{ color: 'white' }} ></Icon>
             </IconButton>
-            <IconButton aria-label="instagram" target='_blank' href='https://www.instagram.com/NUSComputingClub'>
+            <IconButton aria-label="instagram" target='_blank' rel='noreferrer' href='https://www.instagram.com/NUSComputingClub'>
               <Icon className="fab fa-instagram" style={{ color: 'white' }} ></Icon>
             </IconButton>
-            <IconButton aria-label="telegram" target='_blank' href='https://t.me/nuscomputingclub'>
+            <IconButton aria-label="telegram" target='_blank' rel='noreferrer' href='https://t.me/nuscomputingclub'>
               <Icon className="fab fa-telegram" style={{ color: 'white' }} ></Icon>
             </IconButton>
-            <IconButton aria-label="youtube" target='_blank' href='https://www.youtube.com/channel/UCVd-qsSFF328UUqcNxudy0w'>
+            <IconButton aria-label="youtube" target='_blank' rel='noreferrer' href='https://www.youtube.com/channel/UCVd-qsSFF328UUqcNxudy0w'>
               <Icon className="fab fa-youtube" style={{ color: 'white' }} ></Icon>
             </IconButton>
-            <IconButton aria-label="github" target='_blank' href='https://github.com/NUSComputingDev'>
+            <IconButton aria-label="github" target='_blank' rel='noreferrer' href='https://github.com/NUSComputingDev'>
               <Icon className="fab fa-github" style={{ color: 'white' }} ></Icon>
             </IconButton>
             <IconButton aria-label="email" href='mailto:connect@nuscomputing.com'>
