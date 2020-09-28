@@ -77,10 +77,6 @@ const navigationLinks = [
     title: 'About',
     link: '/about',
   },
-  {
-    title: 'Privacy',
-    link: '/privacy',
-  },
   // {
   //   title: 'People',
   //   link: '',

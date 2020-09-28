@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, Container, Grid, Hidden, IconButton, Icon, Link, Typography, useMediaQuery, useTheme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { Link as GatsbyLink } from 'gatsby'
 import WhiteLogo from './white-logo'
 
 const useStyles = makeStyles((theme) => ({
@@ -19,8 +20,10 @@ const useStyles = makeStyles((theme) => ({
 const Copyright = () =>
   <Typography variant='caption'>
     <br/>
-    Copyright © NUS Students' Computing Club<br/>
-    Page designed by <Link target='_blank' rel="noreferrer" href='https://github.com/jeffsieu' style={{color: 'white', textDecoration: 'none', fontWeight: 'bold'}}>Jeff Sieu</Link>
+    Copyright © NUS Students' Computing Club ·&nbsp;
+    <Link component={GatsbyLink} to="/privacy" style={{color: 'white'}}>Privacy Policy</Link>
+    <br/>
+    Page designed by <Link target='_blank' rel="noreferrer" href='https://github.com/jeffsieu' style={{color: 'white', fontWeight: 'bold'}}>Jeff Sieu</Link>
   </Typography>;
 
 const Footer = ({ siteTitle }) => {
